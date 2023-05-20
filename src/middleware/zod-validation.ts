@@ -33,7 +33,7 @@ export function withZod<Env, Schema>(
 
     const queryParams = request.query
     const bodyParams = (await request.body()) ?? {}
-    const existingParams = options.params || {}
+    const existingParams = options.params ?? {}
 
     const params = {
       ...queryParams,
