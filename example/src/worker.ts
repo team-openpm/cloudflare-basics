@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import { Router, json } from 'cloudflare-basics'
+import { RouteHandler, Router, json } from 'cloudflare-basics'
 
 /**
  * Welcome to Cloudflare Workers! This is your first worker.
@@ -32,7 +32,7 @@ export interface Env {
 
 export default {
   async fetch(request: Request, env: Env, ctx: ExecutionContext): Promise<Response> {
-    const router = new Router()
+    const router = new Router<Env>()
 
     router.get('/', async ({ request }) => {
       return new Response('Hello World!')
@@ -44,11 +44,13 @@ export default {
       return json({ data })
     })
 
-    router.get('/books/:id', async ({ params }) => {
+    const MyHandler: RouteHandler<Env> = async ({ params }) => {
       const bookId = params?.id
 
       return json({ bookId })
-    })
+    }
+
+    router.get('/books/:id', MyHandler)
 
     return router.handle(request, env, ctx) ?? new Response('Not Found', { status: 404 })
   },

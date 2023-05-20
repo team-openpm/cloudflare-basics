@@ -24,7 +24,7 @@ export default {
     env: Env,
     ctx: ExecutionContext
   ): Promise<Response> {
-    const router = new Router()
+    const router = new Router<Env>()
 
     router.get('/', async ({ request }) => {
       return new Response('Hello World!')
