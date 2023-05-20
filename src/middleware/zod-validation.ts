@@ -17,8 +17,7 @@ type RouteHandler<Env, Schema> = (
  *
  * @example
  * const schema = z.object({
- *   username: z.string(),
- *   password: z.string(),
+ *   name: z.string(),
  * })
  *
  * type schemaType = z.infer<typeof schema>
