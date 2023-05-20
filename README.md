@@ -17,23 +17,36 @@ MIT
 ```ts
 import { Router, json } from 'cloudflare-basics'
 
-const router = new Router()
+export default {
+  async fetch(
+    request: Request,
+    env: Env,
+    ctx: ExecutionContext
+  ): Promise<Response> {
+    const router = new Router()
 
-router.get('/', ({ request }) => {
-  return new Response('Hello World!')
-})
+    router.get('/', async ({ request }) => {
+      return new Response('Hello World!')
+    })
 
-router.post('/books', ({ request }) => {
-  const data = await request.getParams()
+    router.post('/books', async ({ request }) => {
+      const data = await request.getParams()
 
-  return json({ data })
-})
+      return json({ data })
+    })
 
-router.get('/books/:id', ({ params }) => {
-  const bookId = params.id
+    router.get('/books/:id', async ({ params }) => {
+      const bookId = params?.id
 
-  return json({ bookId })
-})
+      return json({ bookId })
+    })
+
+    return (
+      router.handle(request, env, ctx) ??
+      new Response('Not Found', { status: 404 })
+    )
+  },
+}
 ```
 
 ## Zod Validation
