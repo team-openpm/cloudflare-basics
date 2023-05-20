@@ -8,9 +8,10 @@ Just the basics and nothing more.
 
 [![NPM version](https://img.shields.io/npm/v/cloudflare-basics?color=a1b858&label=)](https://www.npmjs.com/package/cloudflare-basics)
 
-## License
+# Requirements
 
-MIT
+- Requires Node 18.x
+- Technically built for Cloudflare Workers, but you can use it in Node.js too
 
 ## Usage
 
@@ -65,3 +66,7 @@ const MyRoute = withZod<Env, schemaType>(schema, async (options) => {
 
 router.post('/', MyRoute)
 ```
+
+## License
+
+MIT
