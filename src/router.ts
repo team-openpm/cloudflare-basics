@@ -47,7 +47,7 @@ export class Router<Env> {
 
     this.routes.push([
       (request) => {
-        if (!method || request.method.toLowerCase() === method) {
+        if (!method || request.method === method) {
           const match = urlPattern.exec({
             pathname: new URL(request.url).pathname,
           })
