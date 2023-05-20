@@ -1,19 +1,15 @@
 import z from 'zod'
-import { RouteOptions } from '../types'
+import { RouteOptions, ZodRouteHandler } from '../types'
 import { error } from '../response'
-
-type RouteHandler<Env, Schema> = (
-  options: RouteOptions<Env> & { data: Schema }
-) => Promise<Response>
 
 /**
  * Creates a route handler that validates the request data and parameters using the Zod schema.
  * If validation fails, it returns a 400 json error with a detailed message.
  *
  * @param {z.Schema} schema - A Zod schema used to validate the incoming request data and parameters.
- * @param {RouteHandler<Env, Schema>} callback - The main callback that will be executed after validation is successful.
+ * @param {ZodRouteHandler<Env, Schema>} callback - The main callback that will be executed after validation is successful.
  *
- * @return {RouteHandler}
+ * @return {ZodRouteHandler}
  *
  * @example
  * const schema = z.object({
@@ -30,7 +26,7 @@ type RouteHandler<Env, Schema> = (
  */
 export function withZod<Env, Schema>(
   schema: z.Schema,
-  callback: RouteHandler<Env, Schema>
+  callback: ZodRouteHandler<Env, Schema>
 ) {
   return async (options: RouteOptions<Env>) => {
     const { request } = options
