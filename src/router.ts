@@ -49,7 +49,7 @@ export class Router<Env> {
       (request) => {
         if (!method || request.method === method) {
           const match = urlPattern.exec({
-            pathname: new URL(request.url).pathname,
+            pathname: request.url.pathname,
           })
 
           if (match) {
