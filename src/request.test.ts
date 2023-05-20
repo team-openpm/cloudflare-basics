@@ -57,7 +57,7 @@ describe('request', () => {
       })
     )
 
-    expect(await request.getParams()).toEqual({ foo: 'bar' })
+    expect(await request.body()).toEqual({ foo: 'bar' })
   })
 
   it('parses forms', async () => {
@@ -71,6 +71,6 @@ describe('request', () => {
       })
     )
 
-    expect(await request.getParams()).toEqual({ foo: 'bar' })
+    expect(await request.body()).toEqual({ foo: 'bar' })
   })
 })

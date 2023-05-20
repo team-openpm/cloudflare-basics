@@ -52,7 +52,7 @@ export class BasicRequest {
    * A helper to parse the request body.
    * @returns {Promise<T>} The parsed request body as an object.
    */
-  async getParams<T>(): Promise<T | undefined> {
+  async body<T>(): Promise<T | undefined> {
     const ct = this.contentType
     const rq = this.request
 

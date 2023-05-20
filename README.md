@@ -31,7 +31,7 @@ export default {
     })
 
     router.post('/books', async ({ request }) => {
-      const data = await request.getParams()
+      const data = await request.body<{ foo: string }>()
 
       return json({ data })
     })
