@@ -23,10 +23,16 @@ router.get('/', ({ request }) => {
   return new Response('Hello World!')
 })
 
-router.post('/', ({ request }) => {
+router.post('/books', ({ request }) => {
   const data = await request.getParams()
 
   return json({ data })
+})
+
+router.get('/books/:id', ({ params }) => {
+  const bookId = params.id
+
+  return json({ bookId })
 })
 ```
 
