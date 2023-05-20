@@ -1,12 +1,16 @@
 # cloudflare-basics
 
+[![NPM version](https://img.shields.io/npm/v/cloudflare-basics?color=a1b858&label=)](https://www.npmjs.com/package/cloudflare-basics)
+
 Just the basics and nothing more.
 
 - Simple Router
 - Simple request body parsing
 - Simple zod validation
 
-[![NPM version](https://img.shields.io/npm/v/cloudflare-basics?color=a1b858&label=)](https://www.npmjs.com/package/cloudflare-basics)
+See also:
+
+- [cloudflare-basics-ai-plugin](https://github.com/maccman/cloudflare-basics-ai-plugin) for ChatGPT plugins.
 
 # Requirements
 
