@@ -6,20 +6,39 @@ type RouteHandler<Env, Schema> = (
   options: RouteOptions<Env> & { data: Schema }
 ) => Promise<Response>
 
+/**
+ * Creates a route handler that validates the request data and parameters using the Zod schema.
+ * If validation fails, it returns a 400 json error with a detailed message.
+ *
+ * @param {z.Schema} schema - A Zod schema used to validate the incoming request data and parameters.
+ * @param {RouteHandler<Env, Schema>} callback - The main callback that will be executed after validation is successful.
+ *
+ * @return {RouteHandler}
+ *
+ * @example
+ * const schema = z.object({
+ *   username: z.string(),
+ *   password: z.string(),
+ * })
+ *
+ * type schemaType = z.infer<typeof schema>
+ *
+ * withZod<Env, schemaType>(schema, async (options) => {
+ *  console.log(options.data) //=> { name: 'test' }
+ *  return new Response('ok')
+ * })
+ *
+ */
 export function withZod<Env, Schema>(
   schema: z.Schema,
   callback: RouteHandler<Env, Schema>
 ) {
-  return async (options: RouteOptions<Env> & { data: Schema }) => {
+  return async (options: RouteOptions<Env>) => {
     const { request } = options
 
     const queryParams = request.query
-    const bodyParams = await request.getParams()
+    const bodyParams = (await request.getParams()) ?? {}
     const existingParams = options.params || {}
-
-    if (!bodyParams) {
-      return error('Invalid request')
-    }
 
     const params = {
       ...queryParams,
@@ -30,9 +49,21 @@ export function withZod<Env, Schema>(
     const result = schema.safeParse(params)
 
     if (!result.success) {
-      return error(result.error.message)
+      const firstError = result.error?.errors?.[0]
+
+      if (firstError) {
+        return error(`${firstError.path} ${firstError.message}`.toLowerCase(), {
+          type: firstError.code,
+          status: 400,
+        })
+      } else {
+        return error('invalid_request')
+      }
     }
 
-    callback(options)
+    return callback({
+      ...options,
+      data: result.data,
+    })
   }
 }

@@ -10,6 +10,9 @@ export class BasicRequest {
     this.url = new URL(request.url)
   }
 
+  /**
+   * Returns the request method as a lowercase string.
+   */
   get method(): RequestMethod {
     return enumFromString<RequestMethodEnum>(
       RequestMethodEnum,
@@ -17,6 +20,9 @@ export class BasicRequest {
     )
   }
 
+  /**
+   * Returns the cookies sent by the client.
+   */
   get cookies(): Record<string, string> {
     const cookieString = this.headers.get('cookie')
 
@@ -27,8 +33,11 @@ export class BasicRequest {
     return parseCookie(cookieString)
   }
 
+  /**
+   * Returns the query parameters sent by the client.
+   */
   get query() {
-    return this.url.searchParams
+    return toObject(this.url.searchParams)
   }
 
   get headers() {
@@ -39,7 +48,11 @@ export class BasicRequest {
     return this.url.origin
   }
 
-  getParams<T>() {
+  /**
+   * A helper to parse the request body.
+   * @returns {Promise<T>} The parsed request body as an object.
+   */
+  async getParams<T>(): Promise<T | undefined> {
     const ct = this.contentType
     const rq = this.request
 
@@ -62,6 +75,9 @@ export class BasicRequest {
     return
   }
 
+  /**
+   * Returns the content type of the request.
+   */
   get contentType() {
     return this.request.headers.get('content-type')
   }

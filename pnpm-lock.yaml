@@ -35,6 +35,9 @@ importers:
       typescript:
         specifier: ^5.0.4
         version: 5.0.4
+      urlpattern-polyfill:
+        specifier: ^8.0.2
+        version: 8.0.2
       vite:
         specifier: ^4.3.5
         version: 4.3.5(@types/node@18.16.9)
@@ -3187,6 +3190,10 @@ packages:
     resolution: {integrity: sha512-7rKUyy33Q1yc98pQ1DAmLtwX109F7TIfWlW1Ydo8Wl1ii1SeHieeh0HHfPeL2fMXK6z0s8ecKs9frCuLJvndBg==}
     dependencies:
       punycode: 2.1.1
+    dev: true
+
+  /urlpattern-polyfill@8.0.2:
+    resolution: {integrity: sha512-Qp95D4TPJl1kC9SKigDcqgyM2VDVO4RiJc2d4qe5GrYm+zbIQCWWKAFaJNQ4BhdFeDGwBmAxqJBwWSJDb9T3BQ==}
     dev: true
 
   /validate-npm-package-license@3.0.4:

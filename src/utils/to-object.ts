@@ -1,3 +1,6 @@
+// Taken from https://github.com/lukeed/worktop/tree/master
+// MIT License Luke Edwards <luke.edwards05@gmail.com> (lukeed.com)
+
 type Arrayable<T> = T | Array<T>
 type DataObject = Record<string, Arrayable<FormDataEntryValue>>
 
@@ -13,5 +16,6 @@ export function toObject(
         ? ([] as FormDataEntryValue[]).concat(tmp, val)
         : val
   }
+
   return out
 }
