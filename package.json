@@ -56,14 +56,15 @@
     "typescript": "^5.0.4",
     "urlpattern-polyfill": "^8.0.2",
     "vite": "^4.3.5",
-    "vitest": "^0.31.0"
+    "vitest": "^0.31.0",
+    "zod": "^3.22.1"
   },
   "renovate": {
     "extends": [
       "github>ocavue/config-renovate"
     ]
   },
-  "dependencies": {
-    "zod": "^3.21.4"
+  "peerDependencies": {
+    "zod": "^3.22.1"
   }
 }

@@ -1,49 +1,45 @@
 lockfileVersion: '6.0'
 
-importers:
-
-  .:
-    dependencies:
-      zod:
-        specifier: ^3.21.4
-        version: 3.21.4
-    devDependencies:
-      '@antfu/ni':
-        specifier: ^0.21.3
-        version: 0.21.3
-      '@cloudflare/workers-types':
-        specifier: ^4.20230511.0
-        version: 4.20230511.0
-      '@ocavue/eslint-config':
-        specifier: ^0.4.7
-        version: 0.4.7(eslint@8.40.0)(prettier@2.8.8)(typescript@5.0.4)
-      '@types/node':
-        specifier: ^18.16.9
-        version: 18.16.9
-      eslint:
-        specifier: ^8.40.0
-        version: 8.40.0
-      esno:
-        specifier: ^0.16.3
-        version: 0.16.3
-      prettier:
-        specifier: ^2.8.8
-        version: 2.8.8
-      tsup:
-        specifier: ^6.7.0
-        version: 6.7.0(typescript@5.0.4)
-      typescript:
-        specifier: ^5.0.4
-        version: 5.0.4
-      urlpattern-polyfill:
-        specifier: ^8.0.2
-        version: 8.0.2
-      vite:
-        specifier: ^4.3.5
-        version: 4.3.5(@types/node@18.16.9)
-      vitest:
-        specifier: ^0.31.0
-        version: 0.31.0
+devDependencies:
+  '@antfu/ni':
+    specifier: ^0.21.3
+    version: 0.21.3
+  '@cloudflare/workers-types':
+    specifier: ^4.20230511.0
+    version: 4.20230511.0
+  '@ocavue/eslint-config':
+    specifier: ^0.4.7
+    version: 0.4.7(eslint@8.40.0)(prettier@2.8.8)(typescript@5.0.4)
+  '@types/node':
+    specifier: ^18.16.9
+    version: 18.16.9
+  eslint:
+    specifier: ^8.40.0
+    version: 8.40.0
+  esno:
+    specifier: ^0.16.3
+    version: 0.16.3
+  prettier:
+    specifier: ^2.8.8
+    version: 2.8.8
+  tsup:
+    specifier: ^6.7.0
+    version: 6.7.0(typescript@5.0.4)
+  typescript:
+    specifier: ^5.0.4
+    version: 5.0.4
+  urlpattern-polyfill:
+    specifier: ^8.0.2
+    version: 8.0.2
+  vite:
+    specifier: ^4.3.5
+    version: 4.3.5(@types/node@18.16.9)
+  vitest:
+    specifier: ^0.31.0
+    version: 0.31.0
+  zod:
+    specifier: ^3.22.1
+    version: 3.22.1
 
 packages:
 
@@ -3408,6 +3404,6 @@ packages:
     engines: {node: '>=12.20'}
     dev: true
 
-  /zod@3.21.4:
-    resolution: {integrity: sha512-m46AKbrzKVzOzs/DZgVnG5H55N1sv1M8qZU3A8RIKbs3mrACDNeIOeilDymVb2HdmP8uwshOCF4uJ8uM9rCqJw==}
-    dev: false
+  /zod@3.22.1:
+    resolution: {integrity: sha512-+qUhAMl414+Elh+fRNtpU+byrwjDFOS1N7NioLY+tSlcADTx4TkCUua/hxJvxwDXcV4397/nZ420jy4n4+3WUg==}
+    dev: true
