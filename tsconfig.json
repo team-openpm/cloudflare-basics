@@ -10,7 +10,9 @@
     "resolveJsonModule": true,
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
-    "types": ["@cloudflare/workers-types"]
+    "types": ["@cloudflare/workers-types"],
+    "outDir": "./dist"
   },
-  "exclude": ["example"]
+  "exclude": ["example", "node_modules", "dist"],
+  "include": ["src/**/*"]
 }
