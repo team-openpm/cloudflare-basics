@@ -1,7 +1,7 @@
 {
   "name": "cloudflare-basics",
   "type": "module",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "packageManager": "pnpm@8.5.1",
   "description": "",
   "author": "Alex MaccCaw <alex@alexmaccaw.com>",
@@ -22,6 +22,11 @@
       "types": "./dist/index.d.ts",
       "require": "./dist/index.cjs",
       "import": "./dist/index.js"
+    },
+    "./middleware/zod-validation": {
+      "types": "./dist/middleware/zod-validation.d.ts",
+      "import": "./dist/middleware/zod-validation.js",
+      "default": "./dist/middleware/zod-validation.js"
     }
   },
   "typesVersions": {
@@ -29,6 +34,9 @@
       "*": [
         "./dist/*",
         "./dist/index.d.ts"
+      ],
+      "middleware/zod-validation": [
+        "dist/middleware/zod-validation.d.ts"
       ]
     }
   },
