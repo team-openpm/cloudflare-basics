@@ -47,7 +47,7 @@ export function withZod<Env, Schema>(
       const firstError = result.error?.errors?.[0]
 
       if (firstError) {
-        return error(`${firstError.path} ${firstError.message}`.toLowerCase(), {
+        return error(`${firstError.path} ${firstError.message}`, {
           type: firstError.code,
           status: 400,
         })
